@@ -32,11 +32,12 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-Set `username`and `password` to your Viessmann Developer Portal login credentials.
+Set `username`and `password` to your ViCare login credentials.
 The required Client ID can be obtained as follows:
-1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com).
-2. In the menu navigate to API Keys.
-3. Create a new OAuth client using the following data:
+1. Login to the [Viessmann Developer Portal](https://developer.viessmann.com) using your ViCare account.
+2. In the menu navigate to the [API Dashboard](https://app.developer.viessmann.com/).
+3. Read and accept the privacy policy and terms and conditions, Opt-In to receive information from Viessmann regarding the API.
+4. Under "Your clients" click on "Add" to create a new OAuth client using the following data:
   ```txt
   Name: PyViCare
   Google reCAPTCHA: Disabled
@@ -49,12 +50,11 @@ Multiple device instances might be generated depending on the number of burners 
 
 ## Viessmann API limits
 
-The Viessmann API is rate-limited. If you exceed one of the limits below you will be banned for 24 hours:
+The Viessmann API is rate-limited. If you exceed the limit below you will be banned from calling the API:
 
-- Limit 1: 120 calls for a time window of 10 minutes
-- Limit 2: 1450 calls for a time window of 24 hours
+Limit: 1450 calls for a time window of 24 hours
 
-The default `scan_interval` of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
+The default `scan_interval` of 60 seconds will work within this limit. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
 
 ## Climate
 
